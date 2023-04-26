@@ -1,0 +1,14 @@
+global_costmap:
+   global_frame: map
+   robot_base_frame: scanmatcher_frame
+   update_frequency: 1.0
+   publish_frequency: 0.5 # 0.5
+   static_map: false #true
+   transform_tolerance: 0.5
+   rolling_window: true #TADINYA GADA, terus error outbound map #keeps the robot in the center of the costmap as it moves throughout the world
+
+   plugins:
+      - {name: laser_layer, type: "costmap_2d::VoxelLayer"}
+      - {name: realsense_layer, type: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"} 
+      - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
+      
